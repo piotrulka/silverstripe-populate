@@ -44,10 +44,6 @@ class Populate extends SS_Object
 
         self::$ran = true;
 
-        if (!(Director::isDev() || Director::isTest())) {
-            throw new Exception('requireRecords can only be run in development or test environments');
-        }
-
         $factory = Injector::inst()->create('PopulateFactory');
 
         foreach (self::config()->get('truncate_objects') as $objName) {
